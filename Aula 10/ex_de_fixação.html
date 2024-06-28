@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+    <style>
+        .linha{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background-color: white;
+            width: 90%;
+            height: 90vh;
+        }
+        .container{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .title{
+            font-size: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: black;
+            position: absolute;
+            left: 45%;
+        }
+        .bt{
+            max-width: 300px;
+            background-color: rgb(78, 75, 75);
+            padding: 14px;
+            border: 1px inset rgba(255,255,255,0.3);
+            border-bottom-right-radius: 10px;
+            cursor: pointer;
+            color: white;
+        }
+        .bt:hover{
+            background-color: rgba(53, 53, 216, 0.589);
+            transition:0.3s ease-in-out ;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Exercício</h1>
+        <div class="container">
+            <button class="bt vd" onclick="showMore(a)">
+                Lógica de Programação
+            </button>
+
+            <button class="bt vm" onclick="showMore(b)">
+                Arduino
+            </button>
+        </div>
+    <script>
+        function showMore(){
+            var nome = document.body.getElementsByTagName('button')
+        }
+    </script>
+    </body>
+</html>

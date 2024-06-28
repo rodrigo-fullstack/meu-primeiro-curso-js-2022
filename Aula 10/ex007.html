@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando valores</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20pt;
+        }
+        input {
+            color:rgba(0, 0, 0);
+            background-color: rgba(0, 0, 255, 0.329);
+            border: 3px inset rgba(19, 0, 10, 0.932);
+            border-radius: 15px;
+            margin: 2px;
+            box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.2);
+        }
+        #result{
+            line-height: 60px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1> Somar Valores</h1>
+    <input type="text" name="txtn1" id="txtn1"> +
+    <input type="text" name="txtn2" id="txtn2">
+    <input type="button" id="btn" class="btn" onclick="somar()">
+    <div id="result"> Resultado </div>
+    <input type="button" id="btn" class="btn" value="Clear" onclick="limpar()">
+    <script>
+        
+
+        function somar() {
+            var tn1 = window.document.getElementById('txtn1')
+            var tn2 = window.document.getElementById('txtn2')
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var soma = n1 + n2
+            var result = document.getElementById('result')
+            console.log (soma)
+                result.innerText = `A soma entre ${n1} e ${n2} foi: ${soma}`
+        }
+        function limpar(){
+            var res = document.getElementById('result')
+            res.innerText = 'Resultado'
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício condições</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .fundo{
+            background: linear-gradient(30deg, white, rgb(27, 189, 27));
+            outline: none;
+            border: none;
+            height: 100vh;
+            font-size: 25px;
+            font-family: Times;
+
+        }
+        .div-title > h1{
+            text-align: center;
+            color: white;
+        }
+        .inp{
+            border: 1.5px solid;
+            background-color: white;
+            padding: 6px;
+            margin: 10px;
+            box-shadow: 2px 4px 5px 4px rgba(0,0,0,0.2);
+        }
+        #vel{
+            border-color: rgb(40, 155, 11);
+            width: 190px;
+            height: 20px;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        #verf{
+            border: solid rgba(107, 214, 86, 0.4);
+            border-radius: 20%;
+            cursor: pointer;
+            background-color: rgba(85, 226, 92, 0.767);
+            color: black;
+            font-size: 25px;
+            width: 120px;
+            height: 50px;
+
+        }
+        #verf:hover{
+            background-color: rgba(58, 155, 63, 0.767);
+            color: black;
+            transition: 0.3s ease-in-out;
+        }
+        #result{
+            font-size: 20px;
+            color: white;
+            margin: 10px;
+            opacity: 50%;
+            background-color:   rgb(54, 206, 54);
+            max-width: 500px;
+            display: inline-block;
+            padding: 6px;
+            text-align: left;
+            border: 2px solid rgb(58, 55, 55);
+            border-top: 3px rgb(0,0,0);
+            border-left: 3px rgb(0,0,0);
+            border-radius: 5px;
+            line-height: 25px;
+            
+
+        }
+        #perm{
+            border-color: rgb(40, 155, 11);
+            width: 190px;
+            height: 20px;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        #nome{
+            border-color: rgb(40, 155, 11);
+            width: 190px;
+            height: 20px;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="fundo">
+  <div class="elements">
+    <div class="div-title">
+    <h1 class="title">
+        Verificador de Velocidade
+    </h1>
+    <div>
+        Nome do motorista: <input type="text" class="inp" id="nome">
+    </div>
+    <div>
+    Permitido:<input type="text" class= "inp" id="perm"></div>
+ </div>
+     Velocidade: <input type="text" class="inp" id="vel" title= 'Digite a velocidade do carro'>
+    
+    <div>
+    <input type="button" class="inp" id="verf" value="Verificar">
+    </div>
+    <div id="result">
+        <span>Resultado</span> 
+    </div>
+  </div>
+</div>
+<script>
+    var button = document.getElementById("verf")
+    button.addEventListener('click', verificar) //Ouvinte de eventos para intercalar com o html
+    function verificar() {
+
+        var nome = document.getElementById('nome').value
+        var inp_vel = document.getElementById('vel') //Primeiro, declara a variável do input, do elemento
+        var vel = Number(inp_vel.value) //Depois, se capta o valor interior
+        
+        var result = document.getElementById('result')
+
+        var inp_perm = document.getElementById('perm')
+        var perm = Number(inp_perm.value)
+        var variação = perm>100?perm*12/100:perm*29/100 /*Valor Ternário: variação somente é igual a 12% de 
+        perm se perm > 100, senão, variação é igual a 29% de perm
+        */
+        result.style.opacity = "100%" //Retira a transparência do resultado
+        
+
+        if (isNaN(vel) || isNaN(perm) || perm == 0 || nome == ' '){ 
+            /*
+            Operador lógico de disjunção (ou) ||
+            
+            Se vel não for um número
+            Se perm não for um número
+            Se perm for igual a 0
+            E se não houver nome
+            Gera um erro!
+
+            */
+        result.innerText = "Erro!"
+        } else{
+            result.innerHTML = `Sua velocidade é de <strong>${vel}</strong> km/h <br>`
+            result.innerHTML += `Dirija sempre com cuidado! <br>`
+            if (vel>=perm){
+                result.innerHTML += `Sua velocidade, ${nome}, passou do permitido, você foi multado!`
+
+            }
+            else{
+                if (vel<perm && vel>perm-variação)
+                {
+                    result.innerHTML += `Cuidado, ${nome}, você está se aproximando do limite de velocidade`
+                }
+                else
+                {
+                    result.innerHTML += `${nome}, sua velocidade é permitida`
+                }
+            }
+        }
+    }
+</script>
+ <!--
+        Criação de condição
+        HTML{
+        1º passo: Criar uma div que será o fundo
+        2º passo: Criar um título
+        3º passo: Criar o input onde o valor será verificado
+        4º passo: Criar o botão verificar
+        5º passo: Criar o espaço onde o resultado da verificação será exibido
+        } 
+        CSS{
+            1º passo: Mudar o fundo
+            2º passo: Estilizar as fontes
+            3º passo: Estilizar o input e os botões
+            4º passo: Posicioná-los
+            5º passo: Utilizar o espaço do resultado
+        
+        }
+        JS{
+            1º passo: Criar a varíavel de cada input
+            2º passo: Criar a variável do resultado
+            3º passo: Adicionar um ouvinte de eventos
+            4º passo: Criar a função do click do botão
+            5º passo: Na função, colocar a condição
+            6º passo: Exibir o resultado no espaço do "resultado" 
+
+        }
+    -->
+</body>
+</html>

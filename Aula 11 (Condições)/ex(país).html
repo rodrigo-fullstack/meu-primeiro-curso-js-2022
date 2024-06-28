@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Nacionalidade</title>
+
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .fundo
+        {
+            height: 100vh;
+            font-family: 'Times New Roman', Times, serif;
+            background-image: linear-gradient(180deg, #5b10d9,#440cc6,#2e08b3,#1704a0,#00008d);
+            font-size: 25px;
+        }
+        .elements
+        {
+            display: inline-block;
+            margin: 20px;
+            line-height: 60px;
+        }   
+        .title
+        {
+            font-size: 30px;
+            text-decoration: underline;
+            position: relative;
+            left: 40%;
+            margin-bottom: 30px;
+            border: 2px solid #00008d;
+            padding: 10px;
+            border-radius: 9px;
+            box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.5);
+            
+        }
+        .background{
+            background-color: white;
+            max-width: 500px;
+            padding: 9px;
+            border-bottom-left-radius: 9px;
+            border-top-left-radius: 9px;
+            
+        }
+        .inp
+        {
+        border: hidden;
+        border-left: 5px solid;
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px;
+        border-color: #00008d;
+        background-color: #2e08b3;
+        padding: 7px 5px;
+        width: 200px;
+        height: 20px;
+        font-size: 20px;
+        box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.3);
+        color: white;
+
+        }
+        .inp-txt{
+            margin-left: 15px;
+            margin-right: 15px;
+            background-color: white;
+            padding: 5px;
+            border: hidden;
+            border-left: #00008d 3.4px solid;
+            border-radius: 6px 0px 0px 6px;
+            box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.3);
+
+        }
+        .btn{
+        font-size: 25px;
+        max-width: 200px;
+        border: #1704a0 solid 1px;
+        box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.3);
+        border-radius: 12px;
+        padding: 5px 10px;
+        background-color: #5b10d9;
+        cursor: pointer;
+        color: white;
+        margin: 30px 0px;
+        display: flexbox;
+        position: relative;
+        left: 25%;
+        }
+        .btn:hover
+        {
+        transition: 0.3s ease-in-out;
+        background-color: #2e08b3;
+        }
+        #result
+        {
+        display: inline-block;
+        background-color: white;
+        max-width: 500px;
+        padding: 9px;
+        border: hidden;
+        border-left: #00008d 4px solid;
+        border-bottom-left-radius: 9px;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.3);
+        opacity: 70%;
+        }
+        #nacionalidade{
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fundo">
+        <div class="elements">
+
+            <div class="title"><h1>Verificador de Nacionalidade</h1></div>
+            <div class="background">
+            <div> <span class="inp-txt">Digite o Nome: </span><input type="text" class="inp" id="nome"></div>
+
+            <div><span class="inp-txt"> De onde você é?</span> <select class = "inp"name="nacionalidade" id="nacionalidade">
+                <option value="1">Brasil</option>
+                <option value="2">Alemanha</option>
+                <option value="3">Rússia</option>
+                <option value="4">Portugal</option>
+                <option value="5">Israel</option>
+                <option value="6">Estados Unidos</option>
+                <option value="7">França</option>
+                <option value="8">Inglaterra</option>
+            </select>
+        </div>
+            </div>
+            <div><input type="button" class="btn" id="verf" value="Verificar" onclick="verificar()"></div>
+
+            <div id="result"> <span>Resultado</span> </div>
+            <div> <input type="button" class="btn" onclick="reset()" value="Resetar"></div>
+        </div>
+    </div>
+<script>
+    var button = document.getElementById('verf')
+    var inpNome = document.getElementById('nome')
+    inpNome.addEventListener('keypress',function (e) 
+    {
+        var keyCode = (e.keyCode ? e.keyCode : e.which);
+  
+     if (keyCode > 47 && keyCode < 58) {
+    e.preventDefault();
+    }
+    });
+    function verificar() {
+
+        var nome = document.getElementById('nome').value
+        var select = document.getElementById('nacionalidade')
+        var nacl = select.options[select.selectedIndex].text;
+
+        var result = document.getElementById('result')
+
+        result.style.opacity = "100%"
+
+        if (nacl == '' || nome == ''){
+        result.innerText = "Erro!"
+    } else
+    {
+        result.innerHTML = `Seu nome é ${nome}. <br>`
+        if(nacl == 'Brasil'){
+            result.innerHTML += `${nome}, você é brasileiro`
+        }
+        else{
+            result.innerHTML += `${nome}, você é estrangeiro`
+
+        }
+    }
+}
+
+function reset()
+{
+
+        document.getElementById('nome').value = ''
+        document.getElementById('nacionalidade').value = ''
+        document.getElementById('result').innerHTML = 'Resultado'
+
+        document.getElementById('result').style.opacity = '70%'
+
+
+}
+</script>
+    <!--
+        Passo a Passo
+
+        HTML:{
+
+        1º Passo: Criar o fundo
+        2º Passo: Criar a div que enquadrará os elementos
+        3º Passo: Criar o Título
+        4º Passo: Criar a div dos inputs
+        5º Passo: Criar a div de cada um
+        6º Passo: Criar a div do botão Verificar
+        7º Passo: Criar o botão
+        8º Passo: Criar a div que armazenará o resultado
+        9º Passo: Criar o espaço do resultado (pode ser um <p> um <span>)
+        }
+
+        CSS{
+
+        1º Passo: Estilizar o fundo
+        2° Passo: Posicionar os elementos
+        3º Passo: Estilizar as fontes
+        4º Passo: Estilizar os inputs
+        5º Passo: Estilizar o botão
+        6º Passo: Estilizar o resultado
+        }
+
+        JS{
+
+        1º Passo: Criar a variável do botão
+        2º Passo: Adicionar o ouvinte de eventos e a função correspondente
+        3º Passo: Criar a variável do input
+        4º Passa: Criar a variável do valor do input
+        5º Passo: Criar a variável do resultado
+        6º Passo: Criar as condições 
+        
+         inp_nome.addEventListener('keypress',function (e) 
+    {
+        var keyCode = (e.keyCode ? e.keyCode : e.which);
+  
+     if (keyCode > 47 && keyCode < 58) {
+    e.preventDefault();
+    }
+    });
+    var txtnacl = document.getElementById('nacl')
+    txtnacl.addEventListener('keypress',function(e){
+        var keyCode = (e.keyCode ? e.keyCode : e.which);
+  
+        if (keyCode > 47 && keyCode < 58) {
+        e.preventDefault();
+        }
+    })
+        }
+    -->
+</body>
+</html>

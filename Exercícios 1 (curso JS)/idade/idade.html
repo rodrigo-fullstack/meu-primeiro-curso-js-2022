@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo dos Exercícios</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Verificador de idade</h1>
+    </header>
+
+    <section>
+        <div>
+            <div class="txt-background"><span class="txt-inp">Digite seu ano de nascimento:</span></div><input type="text" class="inp" id="ano">
+        </div>
+        <br>
+        <div class="moveradio">
+            <div class="txt-background">
+                <span class="txt-inp"> Sexo:</span>
+            </div>
+            <form class="form" id="form">
+            <label class="form-control">
+                <input type="radio" name="radio" value="masculino" id="sexo"> Masculino
+            </label>
+            <label class="form-control">
+                <input type="radio" name="radio" value="feminino" id="sexo"> Feminino
+            </label>
+            </form>
+        </div>
+        <br>
+        <div>
+            <input type="button" value="Verificar" id="verf" class="btn" onclick="verificar()">
+        </div>
+        <br>
+        <div>
+            <img src="" alt="" class="img" id="img">
+        </div>
+        <br>
+        <div class="result-space" id="result"> aaa</div>
+    </section>
+    <footer>
+        <span>@CursoEmVídeo</span>
+    </footer>
+    <script src="script.js"></script>
+    
+    <!--
+        HTML
+        
+        {
+            1º Modelo apresentado
+            2º Criar o título
+            3º Criar os inps
+            4º Lembrando dos inps radios para o gênero
+            4º Criar o botão verificar
+            5º Criar o espaço onde será escrito o resultado
+        }
+
+        CSS
+        
+        {
+            1º Mudar o fundo
+            2º Estilizar as fontes
+            3º Estilizar os inps
+            4º Procurar como fazer um estilo para os radios
+            5º Estilizar o botão
+            6º Esconder o espaço e estilizá-lo
+
+        }
+
+        JS
+        {
+            1º Criar a varíavel dos inps
+            2º Criar a variável que coleta os dados do inp radio
+            3º Criar a variável do botão
+            4º Criar ouvinte de eventos
+            5º Criar a condição if(idade <12) criança (elseif <18 ) adolescente elseif( <30) Jovem adulto elseif (<59) Adulto elseif(>60)  Idoso
+        }
+
+    -->
+</body>
+</html>

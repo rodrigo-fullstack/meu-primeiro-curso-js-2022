@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada!</title>
+    <style>
+        /*Não esqueçaaaaa*/
+        @import url('https://fonts.googleapis.com/css2?family=Asap&family=Bitter:wght@200&family=Kalam:wght@700&display=swap');
+        
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+        }
+        .title-box {
+            width: 100%;
+            background-color: #49DDEB;
+        
+        }
+        .title{
+            font-family: 'Kalam', cursive;
+            color: white;
+            text-shadow: 3px 3px 3px rgba(0,0,0);
+            text-align: center;
+            font-size: 100px;
+        }
+
+        body{
+            background-color: #EA40EB;
+        }
+        
+        .container{
+            font-family: 'Asap', sans-serif;
+            position: relative;
+            left: 24%;
+            margin: 20px;
+            background-color: #EBB848;
+            border-left: solid;
+            border-right: solid;
+            max-width: 600px;
+            height: 60px;
+            text-align: center;
+            box-shadow: 3px 3px 2px rgba(0,0,0,0.4);
+        }
+        .box{
+            padding: 10px;
+        }
+        .text{
+            display: inline;
+            padding: 10px;
+        }
+        .input-box{
+            display: inline;
+        }
+        .input{
+            height: 40px;
+            border: none;
+            border-right: 2px solid black;
+            background-color:#853FEB ;
+            color: black;
+            padding-left: 10px;
+            font-size: 20px;
+            box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
+        }
+        div.resultado{
+            
+            background-color: #EB8149;
+            max-width: 500px;
+            margin: 80px;
+            margin-inline: auto ;
+            text-align: left;
+            height: auto;
+            border: none;
+            border-left: black 2px solid ;
+            border-right: black 2px solid;
+            font-size: 30px;
+            opacity: 0%;
+            padding: 10px;
+        }
+        .btn{
+            width: 100px;
+            margin: 30px;
+            height: auto;
+            padding: 5px 6px;
+            border: none;
+            background-color: #42EB00;
+            border: solid 2px darkolivegreen;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+            transition: 0.2s all;
+        }
+
+        .btn:active{
+            transform: scale(0.98); /* Dá um efeito de click, precisa do transition de cima*/
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="elements">
+        <div class="title-box"><h1 class="title">Tabuada</h1></div>
+        <div class="container">
+            <div class="box">
+                <div class="text"><span>Digite o número desejado:</span></div>
+                <div class="input-box"><input class="input" id="input" type="number"></div>
+
+            </div>
+            <div class="button-container"><button class="btn" id="btn">Verificar</button></div>
+            
+        </div>
+        
+        <div class="resultado" id="resultado">Aqui aparecerá o resultado</div>
+
+
+    </div>
+
+<script>
+    // Não esqueçaaa
+    var btn = document.getElementById("btn")
+    btn.addEventListener('click', tabuada);
+    function tabuada(){
+        var inpnumber = document.getElementById("input")
+        var number = Number(inpnumber.value)
+        var resultado = document.getElementById("resultado");
+        let x =0 //x = contador
+        
+        resultado.style.opacity="100%"
+        if(number == "") {
+            alert("Erro!")
+        }
+        else{
+            resultado.innerHTML = `Tabuada do ${number}<br>`
+
+            do {
+            var mult = number * x //mult precisa estar dentro da repetição
+            resultado.innerHTML += `${number} X ${x} = ${mult} <br>`
+            x++
+        } while (x<10);
+    }
+        
+        
+}
+
+
+
+    //Não esquecer de testar o código!
+</script>
+<!-- Não esquecer de testar o código JS! -->
+
+    <!-- 
+        HTML{
+            - Criar o título
+            - Criar o input onde será digitado o número da tabuada
+            - Criar o botão de verificação
+            - Criar o espaçõ onde será exposto o resultado
+
+        }
+
+        CSS{
+            - Mudar o fundo
+            - Aplicar uma paleta de cores plausível
+            - Estilizar os inputs
+            - EStilizar o título
+            - Estilizar o espaço
+
+        }
+
+        JS{
+            - Criar as devidas variáveis
+            - Criar o ouvinte de eventos
+            - Criar a estrutura de repetição
+        }
+     -->
+</body>
+</html>

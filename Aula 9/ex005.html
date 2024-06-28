@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM
+    </title>
+    <style>
+        body{
+            background: black;
+            color: white;
+            font: normal 19px Verdana;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estudos DOM</h1>    
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar <strong>DOM</strong> em JS</p>
+    <div id="msg" name="a">Clique em mim</div>
+    <script>
+        var corpo = window.document.body
+        var p1 = window.document.getElementsByTagName("p")[0]
+        corpo.style.background = "gray"
+        window.document.write(`Esse é o resultado : ${p1.innerHTML}`)
+        var div = window.document.querySelector("div#msg")
+        div.style.fontSize = "20px"
+        div.style.color = "wheat"
+        div.innerHTML = "O gostoso da <strong> Bahia </strong."
+    </script>
+    
+</body>
+</html>

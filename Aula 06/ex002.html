@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu primeiro programa de computador!</title>
+    <style>
+        body{
+            background-color: rgba(231, 18, 18, 0.842);
+            color:rgb(58, 0, 0);
+            font: bold 28pt Verdana;
+
+        }
+    p {
+        color:rgb(36, 20, 20)
+    }
+    
+    </style> 
+</head>
+<body>
+    <h1> Hello, world!</h1> 
+    <p> Estou livre da maldição!</p>
+    <button>Aperte-me </button>
+    <br>
+    <br>
+    <img src ="CR7.jpg" 
+    alt ="Um dos melhores jogadores de futebol do mundo, o Cristiano Ronaldo"
+    width ="200"
+    title = 'Cristiano Ronaldo'
+
+    >
+    <br>
+    <img src="T-REX.jpg" 
+    alt="Um dinossauro T-REX, ele é enorme e possui braços pequenos, é carnívoro e muito forte"
+    width="200"
+    title = ' T-REX'
+    > 
+
+
+
+    <script>
+        
+        var button = 
+        document.querySelector('button'); //Seleciona o botão supracriado
+
+
+window.alert('Não esquecer de anotar o que você viu!!') // Emite um aviso por meio de uma caixa acima da página
+window.confirm('Ok?') // Caixa com botão "ok" e "cancelar"
+
+button.onclick = function(){ //Ao apertar o botão, ativa a seguinte função:
+    var nome = prompt("Qual é o seu nome?") //Pergunta que armazena um nome
+    alert('Oi, ' + nome + ', prazer em te conhecer! Tenha disciplina e você vai aprender a programar!!') //Mensagem + o nome
+}
+//fim 
+    </script>   
+</body>
+</html> 
