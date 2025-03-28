@@ -13,6 +13,8 @@ Esse curso foi importate pois pude ter uma noção básica de como é uma lingua
 * Operadores
 * Estruturas Condicionais
 * Estruturas de Repetição
+* Arrays
+* Funções
 
 ### DOM
 * Básico do DOM: Selecionando Elementos
